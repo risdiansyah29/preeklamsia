@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisis Preeklampsia - Deteksi Dini</title>
+    <link rel="icon" href="data:,"> <!-- Mengatasi error favicon -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .connection-status {
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #f8f9fa;
+        }
+
+        .connection-status.online {
+            background-color: #e8f5e9;
+            color: #27ae60;
+        }
+
+        .connection-status.offline {
+            background-color: #ffebee;
+            color: #e74c3c;
+        }
+
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+        }
+
+        .app-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.4rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #34495e;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        input:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+
+        .pressure-inputs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .upload-options {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .option {
+            flex: 1;
+            padding: 15px;
+            text-align: center;
+            border-radius: 10px;
+            background: #f8f9fa;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            border: 2px solid transparent;
+        }
+
+        .option.active {
+            background: #e3f2fd;
+            border-color: #3498db;
+            color: #3498db;
+        }
+
+        .upload-area {
+            border: 3px dashed #ddd;
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            background: #fafafa;
+            margin-bottom: 25px;
+        }
+
+        .upload-area i {
+            font-size: 3rem;
+            color: #7f8c8d;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            background: #3498db;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #2980b9;
+        }
+
+        .btn-success {
+            background: #27ae60;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #229954;
+        }
+
+        .btn-success:disabled {
+            background: #a5d6a5;
+            cursor: not-allowed;
+        }
+
+        .btn-info {
+            background: #3498db;
+            color: white;
+        }
+
+        .btn-secondary {
+            background: #ecf0f1;
+            color: #34495e;
+        }
+
+        .image-preview {
+            margin-top: 25px;
+        }
+
+        .preview-container {
+            width: 100%;
+            height: 200px;
+            border: 2px dashed #ddd;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8f9fa;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+
+        #preview-image {
+            max-width: 100%;
+            max-height: 100%;
+            display: none;
+        }
+
+        .no-preview {
+            text-align: center;
+            color: #7f8c8d;
+        }
+
+        .no-preview i {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .albumin-level {
+            margin: 20px 0;
+        }
+
+        .result-display {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .result-display input {
+            flex: 1;
+            font-size: 1.5rem;
+            text-align: center;
+            padding: 15px;
+        }
+
+        .result-display span {
+            background: #3498db;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .btn-analyze {
+            width: 100%;
+            padding: 18px;
+            font-size: 1.2rem;
+            margin: 20px 0;
+        }
+
+        .result-status {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 12px;
+            margin-bottom: 25px;
+            border-left: 5px solid #3498db;
+        }
+
+        .status-icon i {
+            font-size: 3rem;
+        }
+
+        .status-text h3 {
+            font-size: 1.6rem;
+            margin-bottom: 8px;
+        }
+
+        .result-details {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 15px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .normal { color: #27ae60; background: #e8f5e9; padding: 4px 12px; border-radius: 20px; }
+        .high { color: #e74c3c; background: #ffebee; padding: 4px 12px; border-radius: 20px; }
+        .low { color: #f39c12; background: #fff3e0; padding: 4px 12px; border-radius: 20px; }
+
+        .recommendation {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .data-counter {
+            display: inline-block;
+            margin-left: 10px;
+            padding: 2px 8px;
+            background: #3498db;
+            color: white;
+            border-radius: 12px;
+            font-size: 0.8rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: white;
+            border-radius: 15px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .pressure-inputs {
+                grid-template-columns: 1fr;
+            }
+            .action-buttons .btn {
+                width: 100%;
+            }
+        }
+    </style> -->
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-top">
+                <h1><i class="fas fa-stethoscope"></i> Analisis Preeklampsia</h1>
+                <div class="connection-status offline" id="connection-status">
+                    <i class="fas fa-cloud-offline"></i> <span>Mengecek koneksi...</span>
+                </div>
+            </div>
+            <p class="subtitle">Deteksi dini preeklampsia melalui analisis tekanan darah dan protein urine</p>
+        </header>
+
+        <main class="app-container">
+            <!-- Data Pasien -->
+            <section class="card">
+                <h2><i class="fas fa-user"></i> Data Pasien</h2>
+                <div class="form-group">
+                    <label>Nama Pasien</label>
+                    <input type="text" id="patient-name" placeholder="Masukkan nama">
+                </div>
+                <div class="form-group">
+                    <label>Usia Kehamilan (minggu)</label>
+                    <input type="number" id="patient-age" min="1" max="45" placeholder="Contoh: 28">
+                </div>
+
+                <!-- TAMBAHKAN INI: Berat Badan dan Tinggi Badan -->
+                <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                <div class="form-group">
+                    <label>Berat Badan (kg)</label>
+                    <input type="number" id="patient-weight" min="30" max="200" step="0.1" placeholder="Contoh: 65.5">
+                </div>
+                <div class="form-group">
+                    <label>Tinggi Badan (cm)</label>
+                    <input type="number" id="patient-height" min="100" max="220" step="0.5" placeholder="Contoh: 160">
+                </div>
+                </div>
+                <!-- Tambahan info IMT (otomatis) -->
+                <div id="bmi-info" style="margin-top: 5px; font-size: 0.9rem; color: #7f8c8d; text-align: right;">
+                        IMT: <span id="bmi-value">-</span>
+                </div>
+            </section>
+
+            <!-- Tekanan Darah -->
+            <section class="card">
+                <h2><i class="fas fa-heartbeat"></i> Tekanan Darah</h2>
+                <div class="pressure-inputs">
+                    <div class="form-group">
+                        <label>Sistolik (mmHg)</label>
+                        <input type="number" id="systolic" min="50" max="250" placeholder="120">
+                    </div>
+                    <div class="form-group">
+                        <label>Diastolik (mmHg)</label>
+                        <input type="number" id="diastolic" min="30" max="150" placeholder="80">
+                    </div>
+                </div>
+                <p style="color: #7f8c8d; font-size: 0.9rem;">
+                    <i class="fas fa-info-circle"></i> Normal: ≤ 120/80 mmHg
+                </p>
+            </section>
+
+            <!-- Upload Strip -->
+            <section class="card">
+                <h2><i class="fas fa-camera"></i> Strip Albumin</h2>
+                <div class="upload-options">
+                    <div class="option active" id="upload-option">
+                        <i class="fas fa-upload"></i> Upload
+                    </div>
+                    <div class="option" id="camera-option">
+                        <i class="fas fa-camera"></i> Kamera
+                    </div>
+                </div>
+
+                <div class="upload-area" id="upload-area">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <p>Klik untuk upload foto strip albumin</p>
+                    <button class="btn btn-secondary" id="browse-btn">Pilih File</button>
+                    <input type="file" id="file-input" accept="image/*" hidden>
+                </div>
+
+                <div class="image-preview">
+                    <div class="preview-container">
+                        <img id="preview-image" src="" alt="Preview">
+                        <div class="no-preview" id="no-preview">
+                            <i class="fas fa-image"></i>
+                            <p>Belum ada gambar</p>
+                        </div>
+                    </div>
+                    <button class="btn btn-secondary" id="remove-image" style="width: 100%;">
+                        <i class="fas fa-trash"></i> Hapus
+                    </button>
+                </div>
+
+                <div class="albumin-level">
+                    <label>Hasil Analisis Albumin</label>
+                    <div class="result-display">
+                        <input type="number" id="albumin-result" placeholder="0" readonly>
+                        <span>mg/dL</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Hasil Analisis -->
+            <section class="card">
+                <h2><i class="fas fa-clipboard-check"></i> Hasil Analisis</h2>
+                
+                <div class="result-status" id="result-status">
+                    <div class="status-icon">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <div class="status-text">
+                        <h3 id="status-title">Menunggu Analisis</h3>
+                        <p id="status-desc">Masukkan data dan klik Analisis</p>
+                    </div>
+                </div>
+
+                <div class="result-details">
+                    <div class="detail-row">
+                        <span class="detail-label">Nama Pasien:</span>
+                        <span class="detail-value" id="result-name">-</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Usia Kehamilan:</span>
+                        <span class="detail-value" id="result-age">- minggu</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Tekanan Darah:</span>
+                        <span class="detail-value" id="result-pressure">-/- mmHg</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Kadar Albumin:</span>
+                        <span class="detail-value" id="result-albumin">- mg/dL</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Status Tekanan:</span>
+                        <span class="detail-value" id="result-pressure-status">-</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Status Albumin:</span>
+                        <span class="detail-value" id="result-albumin-status">-</span>
+                    </div>
+                </div>
+
+                <div class="recommendation" id="recommendation">
+                    <h4><i class="fas fa-lightbulb"></i> Rekomendasi</h4>
+                    <p id="recommendation-text">Klik Analisis untuk melihat hasil</p>
+                </div>
+
+                <button class="btn btn-primary btn-analyze" id="analyze-btn">
+                    <i class="fas fa-play"></i> Analisis Sekarang
+                </button>
+
+                <div class="action-buttons">
+                    <button class="btn btn-success" id="save-data-btn" onclick="saveData()" disabled>
+                        <i class="fas fa-save"></i> Simpan Data
+                    </button>
+                    <button class="btn btn-info" onclick="viewData()">
+                        <i class="fas fa-database"></i> Lihat Data
+                        <span class="data-counter" id="data-counter">0</span>
+                    </button>
+                    <button class="btn btn-secondary" onclick="exportData()">
+                        <i class="fas fa-download"></i> Export
+                    </button>
+                    <button class="btn btn-secondary" onclick="resetForm()">
+                        <i class="fas fa-redo"></i> Reset
+                    </button>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p><strong>Disclaimer:</strong> Aplikasi ini hanya alat bantu skrining. Diagnosis akhir oleh tenaga medis.</p>
+            <p>© 2026 Analisis Preeklampsia</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
