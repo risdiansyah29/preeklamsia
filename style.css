@@ -636,7 +636,7 @@ footer p {
     color: #444;
 }
 
-/* ========== MODAL POPUP PANDUAN ========== */
+ /* ========== MODAL POPUP PANDUAN ========== */
         .guide-modal-overlay {
             position: fixed;
             top: 0;
@@ -799,22 +799,13 @@ footer p {
             text-decoration: underline;
         }
         
-        /* Scrollbar Styling */
-        .guide-modal-body::-webkit-scrollbar {
-            width: 6px;
+        /* Demo content */
+        .demo-content {
+            text-align: center;
+            padding: 50px;
+            font-family: Arial, sans-serif;
         }
         
-        .guide-modal-body::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 10px;
-        }
-        
-        .guide-modal-body::-webkit-scrollbar-thumb {
-            background: #3498db;
-            border-radius: 10px;
-        }
-        
-        /* Warna untuk diagnosis */
         .diagnosis-normal { color: #27ae60; font-weight: 600; }
         .diagnosis-hipertensi { color: #e67e22; font-weight: 600; }
         .diagnosis-proteinuria { color: #f39c12; font-weight: 600; }
