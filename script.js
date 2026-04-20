@@ -1655,6 +1655,76 @@ async function checkConnection() {
     }
 }
 
+ // ========== FUNGSI POPUP PANDUAN ==========
+    
+    // Cek apakah panduan sudah pernah ditampilkan
+    function isGuideShown() {
+        return localStorage.getItem('guideShown') === 'true';
+    }
+    
+    // Sembunyikan modal
+    function hideGuide() {
+        const modal = document.getElementById('guideModal');
+        modal.classList.add('hidden');
+        localStorage.setItem('guideShown', 'true');
+    }
+    
+    // Tampilkan modal (panggil jika ingin manual)
+    function showGuide() {
+        const modal = document.getElementById('guideModal');
+        modal.classList.remove('hidden');
+    }
+    
+    // Reset status panduan (agar muncul lagi - untuk testing)
+    function resetGuide() {
+        localStorage.removeItem('guideShown');
+        showGuide();
+    }
+    
+    // Event listener untuk tombol
+    document.getElementById('startAppBtn').addEventListener('click', function() {
+        hideGuide();
+        // Setelah tutup, bisa arahkan ke halaman login atau konten utama
+        // Contoh: window.location.href = 'login.html';
+        console.log('Panduan ditutup, lanjut ke aplikasi');
+    });
+    
+    document.getElementById('skipGuideBtn').addEventListener('click', function() {
+        hideGuide();
+        console.log('Panduan dilewati');
+    });
+    
+    // Inisialisasi: tampilkan panduan hanya jika belum pernah dilihat
+    if (!isGuideShown()) {
+        // Tampilkan modal
+        document.getElementById('guideModal').classList.remove('hidden');
+    } else {
+        document.getElementById('guideModal').classList.add('hidden');
+    }
+
+// Inisialisasi popup panduan
+document.addEventListener('DOMContentLoaded', function() {
+    const guideModal = document.getElementById('guideModal');
+    const startBtn = document.getElementById('startAppBtn');
+    const skipBtn = document.getElementById('skipGuideBtn');
+    
+    function hideGuide() {
+        guideModal.classList.add('hidden');
+        localStorage.setItem('guideShown', 'true');
+    }
+    
+    function showGuide() {
+        if (!localStorage.getItem('guideShown')) {
+            guideModal.classList.remove('hidden');
+        }
+    }
+    
+    if (startBtn) startBtn.addEventListener('click', hideGuide);
+    if (skipBtn) skipBtn.addEventListener('click', hideGuide);
+    
+    showGuide();
+});
+
 // ========== CEK KONEKSI SETIAP 30 DETIK ==========
 setInterval(checkConnection, 30000);
 
