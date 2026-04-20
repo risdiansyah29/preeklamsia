@@ -375,6 +375,66 @@
     </style> -->
 </head>
 <body>
+    
+    <!-- POPUP PANDUAN -->
+<div id="guideModal" class="guide-modal-overlay">
+    <div class="guide-modal-container">
+        <div class="guide-modal-header">
+            <i class="fas fa-hand-holding-heart"></i>
+            <h2>Panduan Aplikasi</h2>
+            <p>Analisis Preeklampsia - Deteksi Dini</p>
+        </div>
+        
+        <div class="guide-modal-body">
+            <h3><i class="fas fa-book-open"></i> Cara Menggunakan</h3>
+            <ol>
+                <li><strong>Isi Data Pasien</strong> - Nama, usia kehamilan, berat & tinggi badan</li>
+                <li><strong>Masukkan Tekanan Darah</strong> - Nilai sistolik dan diastolik (mmHg)</li>
+                <li><strong>Upload Foto Strip Albumin</strong> - Foto strip tes albumin dari pasien</li>
+                <li><strong>Klik "Analisis & Simpan Otomatis"</strong> - Sistem akan menganalisis dan menyimpan data</li>
+                <li><strong>Lihat Hasil</strong> - Diagnosis dan rekomendasi akan muncul di panel kanan</li>
+                <li><strong>Cek Riwayat</strong> - Semua data tersimpan di tabel riwayat</li>
+            </ol>
+
+            <h3><i class="fas fa-chart-line"></i> Interpretasi Hasil</h3>
+            <ul>
+                <li><span class="diagnosis-normal">🟢 NORMAL</span> - Tekanan darah & albumin normal</li>
+                <li><span class="diagnosis-hipertensi">🟠 HIPERTENSI GESTASIONAL</span> - Tekanan darah tinggi tanpa proteinuria</li>
+                <li><span class="diagnosis-proteinuria">🟡 PROTEINURIA</span> - Albumin tinggi tanpa hipertensi</li>
+                <li><span class="diagnosis-preeklampsia">🔴 PRE-EKLAMPSIA</span> - Hipertensi + proteinuria → Segera rujuk!</li>
+            </ul>
+
+            <h3><i class="fas fa-chart-simple"></i> Kriteria Diagnosis</h3>
+            <ul>
+                <li><strong>Hipertensi:</strong> Sistolik ≥ 140 mmHg atau Diastolik ≥ 90 mmHg</li>
+                <li><strong>Proteinuria:</strong> Albumin urine ≥ 300 mg/dL</li>
+                <li><strong>Preeklampsia:</strong> Hipertensi + Proteinuria</li>
+            </ul>
+
+            <div class="guide-info-badge">
+                <i class="fas fa-database"></i>
+                <span>Data tersimpan otomatis ke cloud (SheetDB) & lokal (browser). Login dengan admin/admin</span>
+            </div>
+
+            <div class="guide-warning-badge">
+                <i class="fas fa-exclamation-triangle"></i>
+                <span>Disclaimer: Aplikasi ini hanya alat bantu skrining. Diagnosis akhir harus ditentukan oleh tenaga medis profesional.</span>
+            </div>
+        </div>
+        
+        <div class="guide-modal-footer">
+            <button class="btn-start-guide" id="startAppBtn">
+                <i class="fas fa-arrow-right"></i> Mulai Aplikasi
+            </button>
+            <br>
+            <button class="btn-skip-guide" id="skipGuideBtn">
+                Lewati Panduan
+            </button>
+        </div>
+    </div>
+</div>
+
+    
     <div class="container">
         <header>
             <div class="header-top">
