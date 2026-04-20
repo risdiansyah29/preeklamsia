@@ -1657,11 +1657,6 @@ async function checkConnection() {
 
  // ========== FUNGSI POPUP PANDUAN ==========
     
-    // Cek apakah panduan sudah pernah ditampilkan
-    function isGuideShown() {
-        return localStorage.getItem('guideShown') === 'true';
-    }
-    
     // Sembunyikan modal
     function hideGuide() {
         const modal = document.getElementById('guideModal');
@@ -1693,14 +1688,7 @@ async function checkConnection() {
         hideGuide();
         console.log('Panduan dilewati');
     });
-    
-    // Inisialisasi: tampilkan panduan hanya jika belum pernah dilihat
-    if (!isGuideShown()) {
-        // Tampilkan modal
-        document.getElementById('guideModal').classList.remove('hidden');
-    } else {
-        document.getElementById('guideModal').classList.add('hidden');
-    }
+
 
 // Inisialisasi popup panduan
 document.addEventListener('DOMContentLoaded', function() {
@@ -1724,6 +1712,59 @@ document.addEventListener('DOMContentLoaded', function() {
     
     showGuide();
 });
+
+// ========== POPUP MUNCUL SETIAP RELOAD ==========
+    // TIDAK menggunakan localStorage - akan muncul setiap kali halaman dimuat!
+    
+    // Modal akan tampil secara default (tidak pakai class hidden)
+    // Kode ini hanya untuk mengatur tombol close
+    
+    const modal = document.getElementById('guideModal');
+    const startBtn = document.getElementById('startAppBtn');
+    const skipBtn = document.getElementById('skipGuideBtn');
+    
+    // Fungsi untuk menyembunyikan modal
+    function hideModal() {
+        modal.classList.add('hidden');
+    }
+    
+    // Event untuk tombol "Mulai Aplikasi"
+    if (startBtn) {
+        startBtn.addEventListener('click', hideModal);
+    }
+    
+    // Event untuk tombol "Lewati Panduan"
+    if (skipBtn) {
+        skipBtn.addEventListener('click', hideModal);
+    }
+    
+    // Klik di luar modal juga bisa menutup (opsional)
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            hideModal();
+        }
+    });
+
+// Event untuk tombol tutup
+startBtn.addEventListener('click', () => {
+    document.getElementById('guideModal').classList.add('hidden');
+});
+
+skipBtn.addEventListener('click', () => {
+    document.getElementById('guideModal').classList.add('hidden');
+});
+    
+    // OPSIONAL: Jika ingin popup muncul dengan delay (misal 1 detik)
+    // Modal sudah muncul dari awal, jadi tidak perlu delay
+
+// Popup muncul setelah 1 detik
+setTimeout(function() {
+    const modal = document.getElementById('guideModal');
+    modal.classList.remove('hidden');
+}, 1000); // 1000ms = 1 detik
+    
+    // Untuk debugging
+    console.log('Popup panduan akan muncul setiap reload halaman!');
 
 // ========== CEK KONEKSI SETIAP 30 DETIK ==========
 setInterval(checkConnection, 30000);
