@@ -636,6 +636,190 @@ footer p {
     color: #444;
 }
 
+/* ========== MODAL POPUP PANDUAN ========== */
+        .guide-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+        
+        .guide-modal-overlay.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+        
+        .guide-modal-container {
+            background: white;
+            max-width: 550px;
+            width: 90%;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.3);
+            animation: modalSlideIn 0.4s ease;
+        }
+        
+        @keyframes modalSlideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        /* Header Modal */
+        .guide-modal-header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            padding: 25px 30px;
+            color: white;
+            text-align: center;
+        }
+        
+        .guide-modal-header i {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+        
+        .guide-modal-header h2 {
+            font-size: 1.6rem;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        .guide-modal-header p {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+        
+        /* Body Modal */
+        .guide-modal-body {
+            padding: 25px 30px;
+            max-height: 60vh;
+            overflow-y: auto;
+        }
+        
+        .guide-modal-body h3 {
+            color: #2c3e50;
+            margin: 20px 0 10px 0;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .guide-modal-body h3:first-of-type {
+            margin-top: 0;
+        }
+        
+        .guide-modal-body ul, 
+        .guide-modal-body ol {
+            padding-left: 25px;
+            margin: 10px 0;
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        .guide-modal-body li {
+            margin-bottom: 8px;
+        }
+        
+        .guide-info-badge {
+            background: #e8f5e9;
+            color: #27ae60;
+            padding: 12px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .guide-warning-badge {
+            background: #fff3e0;
+            color: #e67e22;
+            padding: 12px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        /* Footer Modal */
+        .guide-modal-footer {
+            padding: 20px 30px;
+            border-top: 1px solid #eee;
+            text-align: center;
+        }
+        
+        .btn-start-guide {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            border: none;
+            padding: 14px 35px;
+            border-radius: 50px;
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .btn-start-guide:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-skip-guide {
+            background: none;
+            border: none;
+            color: #95a5a6;
+            cursor: pointer;
+            font-size: 0.85rem;
+            margin-top: 12px;
+            display: inline-block;
+        }
+        
+        .btn-skip-guide:hover {
+            color: #7f8c8d;
+            text-decoration: underline;
+        }
+        
+        /* Scrollbar Styling */
+        .guide-modal-body::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .guide-modal-body::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        .guide-modal-body::-webkit-scrollbar-thumb {
+            background: #3498db;
+            border-radius: 10px;
+        }
+        
+        /* Warna untuk diagnosis */
+        .diagnosis-normal { color: #27ae60; font-weight: 600; }
+        .diagnosis-hipertensi { color: #e67e22; font-weight: 600; }
+        .diagnosis-proteinuria { color: #f39c12; font-weight: 600; }
+        .diagnosis-preeklampsia { color: #e74c3c; font-weight: 600; }
+
 /* Animation */
 @keyframes spin {
     from { transform: rotate(0deg); }
